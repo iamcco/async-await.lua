@@ -8,7 +8,7 @@ Write async function more like javascript async/await
 local aw = require('async-await')
 local timer = vim.loop.new_timer()
 
-local main = aw.async(function ()
+aw.async(function ()
 
   local hello = aw.await(function (cb)
     timer:start(1000, 0, function ()
@@ -24,8 +24,6 @@ local main = aw.async(function ()
 
   print(hello, world)
 end)
-
-main()
 ```
 
 #### `await` the `async` function
@@ -51,10 +49,8 @@ local hello_world = aw.async(function ()
   return hello,world
 end)
 
-local main = aw.async(function()
+aw.async(function()
     local hello, world = aw.await(hello_world)
     print(hello, world)
 end)
-
-main()
 ```

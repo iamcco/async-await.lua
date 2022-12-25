@@ -29,7 +29,7 @@ M.async = function (func)
     end
   end)
   return function (cb)
-    if res.is_done then
+    if cb ~= nil and res.is_done then
       cb(unp(res.data))
     else
       res.cb = cb

@@ -19,8 +19,9 @@ local hello_world = aw.async(function ()
 end)
 
 local main = aw.async(function()
-    local hello, world = aw.await(hello_world)
-    print(hello, world)
+    return aw.await(hello_world)
 end)
 
-main()
+main(function (...)
+  print(...)
+end)
